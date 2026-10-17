@@ -55,21 +55,6 @@ npm run build
 npm run preview
 ```
 
-## GitHub Pages에 공개하기
-
-이 브랜치는 `github-pages`이며, 배포에 필요한 GitHub Actions 워크플로가 포함되어 있습니다. **파일을 수정한 것만으로 공개 배포가 완료되는 것은 아닙니다.**
-
-1. 저장소의 **Settings → Pages → Build and deployment → Source**에서 **GitHub Actions**를 선택합니다.
-2. `github-pages` 브랜치에 변경 사항을 커밋하고 푸시합니다.
-3. **Actions → Deploy Finlog demo**에서 배포 결과를 확인합니다.
-4. 배포 성공 후 **Settings → Pages**에 표시되는 주소를 공유합니다.
-
-현재 저장소의 기본 예상 주소는 `https://hobe0m.github.io/Finlog/`이며, 실제 주소와 공개 여부는 배포 결과에서 확인하세요. 배포 환경의 허용 브랜치 제한이 있다면 `github-pages` 브랜치를 허용해야 합니다.
-
-화면 주소는 `#/app`, `#/app/goal`처럼 구성되어 하위 화면의 주소 공유와 새로고침을 지원합니다. `github-pages`의 데모 전용 변경은 실제 서비스용 `main`·`dev`에 병합하지 않습니다.
-
-배포 설정 참고: [GitHub Pages 공식 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
-
 ## 검증
 
 ```sh
