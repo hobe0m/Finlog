@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {createState,summary,transact,periodFor,dateAt,forecast,today,preview,validateBackup} from '../server/budget.mjs';
+import {createState,summary,transact,periodFor,dateAt,forecast,today,preview,validateBackup} from '../src/lib/budget.mjs';
 const input=()=>({salary:3000000,payday:1,available:3000000,allocation:400000,buffer:100000,fixed:[{name:'고정비',amount:1200000,day:20}],goal:{name:'여행',target:3000000,opening:600000,mode:'amount',monthly:400000,deadline:'2030-01-01'}});
 const record=(s,kind,amount,extra={})=>transact(s,{kind,amount,date:today(),requestId:crypto.randomUUID(),...extra});
 test('예산 배정과 실제 저축·필수 지출은 이중 차감하지 않는다',()=>{const s=createState(input());assert.equal(summary(s).remaining,1300000);record(s,'expense',80000);assert.equal(summary(s).remaining,1220000);record(s,'saving',400000);assert.equal(summary(s).remaining,1220000);assert.equal(summary(s).saved,1000000);record(s,'fixed',1200000,{fixedId:s.fixed[0].id});assert.equal(summary(s).remaining,1220000);});
